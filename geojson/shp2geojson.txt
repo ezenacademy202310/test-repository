@@ -1,0 +1,14 @@
+shp파일 다운로드
+--------------
+https://www.vworld.kr/dtmk/dtmk_ntads_s001.do
+
+shp2geojson변환
+https://mapshaper.org/
+1. SHP.zip 파일을 다운로드 받습니다.
+2. mapshaper에서 'select'를 눌러 해당 파일을 선택합니다.
+3. 'snap vertices'를 체크하고 'Import'를 누릅니다.
+(만약 인코딩 에러가 발생한다면 다시 3번에서 커맨드 라인 옵션에 'encoding=euc-kr'을 넣고 다시 시도합니다.)
+4. 콘솔창을 눌러 콘솔 창에서 "-proj wgs84"명령을 입력한다.(좌표계 변환)
+5. 단순화를 위해 우측 상단의 'Simplify'를 누르고 나오는 창에서 옵션은 그대로 두고 'Apply'를 누릅니다.
+6. 상단에 나오는 스크롤 바를 이용하여 적당히 단순화시킵니다.
+7. 우측 상단의 'Export'를 누르고 옵션을 file Format을 geojson으로 바꾼후 커맨드 라인 옵션에 'encoding=utf-8'을  'Export'를 눌러 json 파일을 내보냅니다.

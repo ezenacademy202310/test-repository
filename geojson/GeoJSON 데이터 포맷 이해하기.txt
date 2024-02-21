@@ -1,0 +1,43 @@
+GeoJSON 이란?
+GeoJSON 은 웹매핑을 하기 위한 지리 데이터를 저장하는 파일 포맷으로,
+JavaScript 로 reading, parsing, editing, querying 이 모두 가능한 데이터 포맷이다.
+Geo-visualization을 하는 나와 같은 분들에게는 필수로 알아두어야 하는, 그리고 당연히 쓸 일이 많은 형식이다.
+GeoJSON 파일은 .json 혹은 .geojson 확장자로 저장된다.
+
+GeoJSON은 기본 지리형태로는 Point, LineString, Polygon,
+복잡한 지리형태로는 MultiPoint, MultiLineString, MultiPolygon, GeometryCollection 데이터 타입을 저장할 수 있다.
+여러가지 지리 특성을 저장하고 싶으면 Feature 라는 형태로 저장할 수 있다.
+
+
+GeoJSON 데이터 저장 형식
+GeoJSON 형식으로 정보를 저장할 때는 늘 type, properties, geometry를 생각하자.
+
+Type에는 항상 'Feature', Properties 에는 이름, 나라 등 원하는 텍스트나 값을 오브젝트의 속성으로 저장할 수 있다.
+Geometry에는 GeoJSON 방식으로 지리정보를 저장하는 곳이다.
+Type, Coordinates로 나뉘는데, type에는 앞서 말한 기본지리형태나 복잡지리형태의 종류를 넣는다
+(예) "type": "Polygon". Coordinates에는 이 지리정보의 테두리가 지나는 꼭지점 등을 지정한다.
+
+
+GeoJSON 데이터 예시 EX)
+{
+	"type": "Feature",
+    "properties": {
+    	"name":"Bermuda Triangle",
+        "situation": "lost"
+        },
+     "geometry":{
+     	"type":"Polygon",
+        "coordinates":[
+        [
+        	[-64.775, 32.276],
+            [-65.017, 18.348],
+            [-80.299, 25.271],
+            [-64.775, 32.276] // 첫번째 꼭지점과 동일해야 폴리곤이 닫힘.
+        ]
+     ]
+}
+
+
+* coordinates 에서 항상 lon, lat 순서로 적어야 한다.
+
+* polygon을 그릴 때 항상 coordinates을 닫아줘야한다. 삼각형의 꼭지점 좌표가 각각 A,B,C일때 GeoJSON에 저장하기 위해서는 A,B,C,A 이런식으로 저장해줘야 한다.
